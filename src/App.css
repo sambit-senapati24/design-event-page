@@ -1,38 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #44464D
+}
+
 .App {
-  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #efefef;
+  display: flex;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.createEventModal {
+  margin: auto;
+  border: 1px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  width: 60%
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  background-color: #f6f6f6;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.title {
+  font-weight: bold;
+}
+
+.primaryButton {
+  border: 1px;
+  border-radius: 4px;
+  background-color: #2A7CE8;
+  padding: 8px 14px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #FFFFFF;
+  width: max-content;
+}
+
+.secondaryButton {
+  border: 1px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  border-color: #ccc;
+  border-style: solid;
+  padding: 8px 14px;
+  font-weight: bold;
+  color: #2A7CE8;
+  width: max-content;
+  font-size: 14px;
+}
+
+.ternaryButton {
+  border: 1px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  border-color: #ccc;
+  border-style: solid;
+  padding: 8px 14px;
+  font-weight: bold;
+  color: #44464D;
+  width: max-content;
+  font-size: 14px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+  background-color: #FFFFFF;
+}
+
+.buttonCollection {
+  display: flex;
+  gap: 16px;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 24px;
+}
+
+.eventInfo {
+  flex-grow: 1;
+  padding-left: 24px;
+  border-left: 1px;
+  border-style: solid;
+  border-color: #E6E8ED;
+}
+
+.input {
+  border: 1px;
+  border-style: solid;
+  border-color: #ccc;
+  background-color: #fafafa;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.eventInfo {
   display: flex;
   flex-direction: column;
+  gap: 26px;
+}
+
+.eventLinkSubInfo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.durationSubInfo {
+  margin-top: 8px;
+}
+
+.multiSelectLabelWrapper {
+  display: flex;
+  flex-direction: row;
+  gap:8px;
+}
+
+.multiSelectLabel {
+  border-radius: 4px;
+  width: max-content;
+  background-color: #cccdd1;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px;
+}
+
+.singleSelect {
+  border-radius: 4px;
+  border: 1px;
+  border-style: solid;
+  border-color: #ccc;
+  padding: 4px 8px;
+  visibility: visible;
+  color: #44464D;
+  font-weight: bold;
+  background-color: #fafafa;
+  height: 36px;
+}
+
+.availabilitySubInfo {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.daysContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.day {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  width: 24px;
+  height: 36px;
 }
 
-.App-link {
-  color: #61dafb;
+.activeDay {
+  border-color: #2A7CE8;
+  color: #2A7CE8;
+  background-color: #AFD4FA;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inactiveDay {
+  border-color: #ccc;
 }
+
+.wrapper-stepper {
+  padding-right: 24px;
+  padding-top: 14px;
+}
+
+.step {   
+  display: flex;
+  justify-content: flex-start;
+  width: max-content;
+  height: 4rem;
+}
+
+.v-stepper {
+  position: relative;
+}
+
+/* regular step */
+.step .circle {
+  background-color: #ccc;
+  border: 2px solid #ccc;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+}
+
+/* regular line */
+.step .line {
+  top: 24px;
+  left: 11px;
+  height: 100%;
+  position: absolute;
+  border-left: 2px solid #ccc;
+}
+
+.step.completed .circle {
+  background-color: #2A7CE8;
+  border-color: #2A7CE8;
+}
+
+.step.completed .line {
+  border-left: 2px solid #2A7CE8;
+}
+
+.step.active .circle {
+  background-color: #AFD4FA;
+  border-color: #2A7CE8;
+}
+
+.step.empty .circle {
+    visibility: visible;
+    border-color: #ccc;
+    background-color: #ccc;
+}
+
+.step:last-child .line {
+  z-index: -1;
+}
+
+.content {
+  margin-left: 12px;
+  margin-top: 2px;
+  color: #85898F;
+  font-weight: bold;
+}
+
+.content.active {
+  color: #44464D;
+}
+
+
